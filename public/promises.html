@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise Play</title>
+</head>
+<body>
+    <h1> Playing with Promises </h1>
+
+    <button id="button1"> Assess and flip! </button>
+    <button id="button2"> GET! </button>
+    <div id="resultDiv"></div>
+
+<script>
+    //global variables
+    var stuff = true;
+    
+    var buttons = document.getElementsByTagName('button');
+    var resultDiv = document.getElementById('resultDiv');
+    
+    buttons[0].addEventListener('click', function(event){
+        assess_button();
+    });
+    
+    buttons[1].addEventListener('click', function(event){
+        
+        try {
+            get('models/stuff.json').then(function(response){
+                console.log("Success!", response);
+            });
+        }
+        catch(err){
+            resultDiv.innerHTML = "FAILED!";
+        }
+        
+    });
+
+    //assess and flip values
+    function assess_button() {
+        
+        //flip the value
+        stuff = !stuff;
+        
+        var promise = new Promise(function(resolve, reject){
+            if(stuff === true) {
+                //if resolved, this gets passed to thenable's 'result'
+                resolve("This message says it's true!");
+
+            }
+            else {
+                //if rejected, this gets passed to thenable's 'result'
+                reject(Error("Stuff is untrue. =("));
+            }
+        });
+
+        //resolve promise
+        promise.then(function(result){
+            console.log(result);
+        }, function(err) {
+            console.log(err);
+        });
+        
+    }
+    
+    //TODO XHR promise
+    function get(url){
+        //return a new promise: this spits out something 'thenable'
+        return new Promise(function(resolve, reject){
+            var request = new XMLHttpRequest();
+            request.open('GET', url);
+            
+            request.onreadystatechange = function() {
+                //this is called even on 404 etc
+                //check status
+                
+                if(request.status == 200) {
+                    //Resolve the promise with the responseText
+                    resolve(request.responseText + "this works");
+                    
+                    //JWX
+                    resultDiv.innerHTML = request.responseText;
+                }
+                else {
+                    //otherwise reject with status text
+                    //which will opefully be a meanigful error
+                    reject(Error(request.statusText));
+                }
+            };
+            
+            //handle network errors
+            request.onerror = function() {
+                reject(Error("Network Error"));
+            };
+            
+            //make the request
+            request.send();
+        });
+    }
+
+
+
+</script>
+
+</body>
+</html>
