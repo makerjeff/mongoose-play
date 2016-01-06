@@ -14,10 +14,14 @@ Tutorials to trudge through: <br>
 - define connection error handler with 
 ```db.on('error', console.error.bind(console, 'connection error:'));```
 - open DB connection with ```db.once('open', function() { console.log('we are connected!')});```
-- create schema with ```var *schema* = mongoose.Schema({ object }));```
+- create schema with ```var <schema> = mongoose.Schema({ object }));```
 - create Schema methods by adding functions to the *models* property of Schema. (before compiling with mongoose.model();) 
 - create model with ```var <Model> = mongoose.model('<model name:string>, <schema>);```
 
 ###CRUD Workflow
 - create documents
 - save documents with ```<document>.save(function(error) { if(error) return console.error(error); });```
+
+
+###More Links
+[Mongoose Queries](http://mongoosejs.com/docs/queries.html)
