@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mongoose Frontend</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,600' rel='stylesheet' type='text/css'>
+
+    <style>
+        * {
+            padding:0px;
+            margin:0px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        fieldset {
+            padding: 10px;
+            border: 1px dashed rgba(220,220,220,1);
+        }
+
+        input {
+            margin: 3px;
+            padding: 10px;
+            border-style: solid;
+            border: 1px solid rgba(200,200,200,1);
+            border-radius: 3px;
+        }
+
+        button {
+            margin: 3px;
+            padding: 10px;
+            border-style: solid;
+            border: 1px solid rgba(200,200,200,1);
+            background-color: rgba(200,200,200,1);
+            color: black;
+
+            text-decoration: none;
+
+
+        }
+
+    </style>
+</head>
+<body>
+<h1>Mongoose Frontend</h1>
+
+<form id="submitForm">
+    <fieldset>
+        <input id="firstName" type="text" placeholder="first name" required> <br>
+        <input id="lastName" type="text" placeholder="last name" required> <br>
+        <input id="age" type="number" placeholder="age" required> <br>
+        <input id="title" type="text" placeholder="title" required> <br>
+
+        <button id="submitButton"> submit </button>
+    </fieldset>
+
+</form>
+
+
+
+</body>
+</html>
