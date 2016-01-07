@@ -15,12 +15,23 @@ Tutorials to trudge through: <br>
 ```db.on('error', console.error.bind(console, 'connection error:'));```
 - open DB connection with ```db.once('open', function() { console.log('we are connected!')});```
 - create schema with ```var <schema> = mongoose.Schema({ object }));```
-- create Schema methods by adding functions to the *models* property of Schema. (before compiling with mongoose.model();) 
+- create Schema methods by adding functions to the *methods* property of Schema. (before compiling with mongoose.model();) 
 - create model with ```var <Model> = mongoose.model('<model name:string>, <schema>);```
 
-###CRUD Workflow
-- create documents
+###CRUD Workflow:
+- create documents ```<document>.
 - save documents with ```<document>.save(function(error) { if(error) return console.error(error); });```
+
+
+###Schema Types:
+- [String](http://mongoosejs.com/docs/api.html#schema-string-js)
+- [Number](http://mongoosejs.com/docs/api.html#schema-number-js)
+- [Date](http://mongoosejs.com/docs/api.html#schema-date-js)
+- [Buffer](http://mongoosejs.com/docs/api.html#schema-buffer-js)
+- Boolean
+- Mixed
+- [Objectid](http://mongoosejs.com/docs/api.html#schema-objectid-js)
+- Array
 
 
 ###More Links
