@@ -79,4 +79,5 @@ init();
 
 function init(){
     console.log(colors.green('Starting server on ' + port + ', running on a ' + process.arch + 'machine. '));
+    app.listen(port || 8000);
 }
