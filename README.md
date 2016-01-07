@@ -19,7 +19,7 @@ Tutorials to trudge through: <br>
 - create model with ```var <Model> = mongoose.model('<model name:string>, <schema>);```
 
 ###CRUD Workflow:
-- create documents ```<document>.
+- create documents ```<document>```.
 - save documents with ```<document>.save(function(error) { if(error) return console.error(error); });```
 
 

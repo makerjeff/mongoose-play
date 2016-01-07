@@ -6,6 +6,8 @@
     "express":"^4.13.3",
     "colors":"^1.1.2",
     "mongoose":"latest",
-    "body-parser":"latest"
+    "body-parser":"latest",
+    "angular":"^1.4.5",
+    "angular-ui-router":"latest"
   }
 }
