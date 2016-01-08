@@ -30,8 +30,20 @@ app.use(function(request, response, next) {
 // == CUSTOM ROUTES ==
 //basic 404
 
-app.get('/public/*', function(request, response){
+app.get('/random', function(request, response){
+
+    var randomNumber = Math.ceil(Math.random() * 47);
     response.type('text/plain');
+    //response.send(`Your random number: ${randomNumber}`);  // ES6
+    response.send('Your random number: ' + randomNumber );
+});
+
+app.get('*', function(request, response){
+    response.sendFile(__dirname + '/public/404.html');
+});
+
+app.get('/public/*', function(request, response){
+    //response.type('text/plain');
     response.sendFile(__dirname + '/public/404.html');
 });
 

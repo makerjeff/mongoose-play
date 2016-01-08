@@ -8,6 +8,7 @@
     "mongoose":"latest",
     "body-parser":"latest",
     "angular":"^1.4.5",
-    "angular-ui-router":"latest"
+    "angular-ui-router":"latest",
+    "ws":"latest"
   }
 }

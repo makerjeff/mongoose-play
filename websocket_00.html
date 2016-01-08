@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <title>WebSockets</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1></h1>
+<div class="messages"></div>
+<form action="javascript:void(0)">
+    <label for="message">&gt;</label>
+    <input type="text" id="message" required autofocus autocomplete="off"/>
+</form>
+
+<script>
+
+    //if chrome
+    var ws = new WebSocket("ws://localhost:3000");
+    ws.onopen = function() {
+        setTitle("Connected to Cyber Chat");
+    };
+
+    ws.onclose = function(){
+        setTitle("DISCONNECTED");
+    };
+
+    ws.onmessage = function(payload){
+        printMessage(payload.data);
+    };
+
+
+    //any browser
+    document.forms[0].onsubmit = function() {
+        var input = document.getElementById('message');
+
+        //send input value
+        ws.send(input.value);
+
+        //reset
+        input.value = '';
+    };
+
+    function setTitle(title){
+        document.querySelector('h1').innerHTML = title;
+    }
+
+    function printMessage(message){
+        var p = document.createElement('p');
+        p.innerText = message;
+        document.querySelector('div.messages').appendChild(p);
+    }
+</script>
+
+</body>
+</html>
